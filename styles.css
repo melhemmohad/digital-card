@@ -1,4 +1,4 @@
-/* ====== Theme ====== */
+F/* ====== Theme ====== */
 :root{
   --bg: #F3F7F8;
   --card: #FFFFFF;
@@ -126,16 +126,6 @@ body{
 }
 .btn-outline:hover {
   box-shadow: 0 8px 20px rgba(0,0,0,.08);
-  transform: translateY(-1px);
-}
-
-/* Primary button (Email) */
-.btn-primary {
-  background: #000;
-  color: #fff;
-}
-.btn-primary:hover {
-  background: var(--primary-dark);
   transform: translateY(-1px);
 }
 
