@@ -225,7 +225,7 @@ body{
 /* Section headings spacing is consistent */
 .section-title {
   margin: 0 0 16px;          /* no top margin, good bottom gap */
-  font-weight: 600;
+  font-weight: 500;
   font-size: var(--fs-18);
   line-height: var(--lh-tight);
 }
@@ -240,7 +240,7 @@ body{
 
 /* Paragraph body */
 .body {
-  margin: 0 0 20px;          /* spacing after each paragraph */
+  margin: 0 0 30px;          /* spacing after each paragraph */
   font-size: var(--fs-15);
   line-height: var(--lh-normal);
   color: #3d4653;
@@ -274,7 +274,7 @@ body{
 .item h3 {
   margin: 0 0 6px;
   font-size: var(--fs-16);
-  font-weight: 600;
+  font-weight: 450;
 }
 .item .muted {
   display: block;
