@@ -149,7 +149,7 @@ body{
 
 /* Circle (LinkedIn) */
 .btn-circle{
-  width: 42px; height: 42px;
+  width: 38px; height: 38px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center; justify-content: center;
