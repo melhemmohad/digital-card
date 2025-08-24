@@ -1,31 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohammad Melhem | Digital Card</title>
-<style>
-body {display:flex;justify-content:center;align-items:center;height:100vh;
-  margin:0;background:#0B2F3C;font-family:"Work Sans",sans-serif;color:#fff;}
-.card {background:#1C1C1C;padding:30px;border-radius:20px;
-  width:320px;text-align:center;box-shadow:0 10px 25px rgba(0,0,0,.3);}
-.card img {width:100px;height:100px;border-radius:50%;margin-bottom:15px;}
-.card h2 {margin:10px 0;color:#34C759;}
-.card p {margin:5px 0;color:#ddd;}
-.card a {display:inline-block;margin-top:12px;padding:10px 18px;
-  border-radius:30px;background:#34C759;color:#fff;text-decoration:none;
-  font-weight:600;transition:.2s;}
-.card a:hover {background:#28a745;}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modern Digital Card</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="card">
-    <img src="https://via.placeholder.com/100" alt="Profile">
-    <h2>Mohammad Melhem</h2>
-    <p>Business Development & Sales Expert</p>
-    <p><a href="mailto:melhem.mohad@gmail.com">📧 Email</a></p>
-    <p><a href="tel:+962795456577">📞 Call</a></p>
-    <p><a href="https://linkedin.com/in/YOUR-LINKEDIN" target="_blank">🔗 LinkedIn</a></p>
-  </div>
+
+  <header class="topbar">
+    <button class="icon-btn" aria-label="Back">←</button>
+    <h1 class="brand">Brandon Debna</h1>
+    <button class="icon-btn" aria-label="More">⋯</button>
+  </header>
+
+  <main class="card">
+
+    <!-- AVATAR + TITLE -->
+    <section class="hero">
+      <div class="avatar">
+        <!-- Replace with your image -->
+        <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=512&auto=format&fit=crop" alt="Profile picture">
+      </div>
+
+      <h2 class="title">UI/UX Designer</h2>
+
+      <p class="muted meta">
+        <strong>345 Followers</strong>
+        <span class="dot">•</span>
+        <span>Dhaka, Bangladesh</span>
+      </p>
+
+      <div class="cta">
+        <a class="btn btn-outline" href="#" role="button">Follow</a>
+        <a class="btn btn-primary" href="mailto:you@example.com" role="button">
+          <span class="icon-mail" aria-hidden="true"></span>
+          Hire Me
+        </a>
+      </div>
+    </section>
+
+    <!-- TABS -->
+    <nav class="tabs" aria-label="Sections">
+      <button class="tab" aria-selected="false">Portfolio</button>
+      <button class="tab is-active" aria-selected="true">Resume</button>
+      <button class="tab" aria-selected="false">Faq</button>
+      <span class="tab-underline" aria-hidden="true"></span>
+    </nav>
+
+    <!-- ABOUT -->
+    <section class="panel">
+      <h3 class="section-title">About me</h3>
+      <p class="body">
+        Passionate UI/UX designer who loves to create awesome interfaces that work great,
+        and believe visual design should help customers easily discover product features,
+        services or brand. I also love what I do.
+      </p>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="panel">
+      <h3 class="section-title">My Skills</h3>
+      <ul class="chips" aria-label="Skills">
+        <li class="chip">UX Design</li>
+        <li class="chip">Photoshop</li>
+        <li class="chip">UI Design</li>
+        <li class="chip">Commitment</li>
+        <li class="chip">English</li>
+        <li class="chip">Communication</li>
+        <li class="chip">Agency</li>
+        <li class="chip">Illustrator</li>
+        <li class="chip">iOS</li>
+        <li class="chip">Android</li>
+        <li class="chip">Material Design</li>
+        <li class="chip">Animation</li>
+      </ul>
+    </section>
+
+    <!-- EXPERIENCE (sample) -->
+    <section class="panel">
+      <h3 class="section-title">My Experience</h3>
+      <article class="item">
+        <div class="item-meta">
+          <h4>Senior UI/UX Designer — Acme Studio</h4>
+          <span class="muted">2021 — Present · Remote</span>
+        </div>
+        <p>Leading design for mobile & web apps, running research, prototypes and design systems.</p>
+      </article>
+      <article class="item">
+        <div class="item-meta">
+          <h4>Product Designer — Bright Apps</h4>
+          <span class="muted">2019 — 2021 · Dhaka</span>
+        </div>
+        <p>Delivered end-to-end feature design and collaborated with engineering & PM.</p>
+      </article>
+    </section>
+
+  </main>
+
 </body>
 </html>
