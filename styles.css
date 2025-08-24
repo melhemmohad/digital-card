@@ -377,6 +377,19 @@ body{
 .experience-panel {
   margin: 0 0 30px 0;
 }
+/* Divider between sections */
+.panel section {
+  border-bottom: 1px solid #F1F3F5; /* light gray line */
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+/* Remove divider from the very last section inside a panel */
+.panel section:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
 
 /* =======================================
    MOBILE FULL-BLEED
