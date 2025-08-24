@@ -147,10 +147,26 @@ body {
 .panel .item p { font-size: 15px;}
 
 /* ===== Responsive */
-@media (min-width: 720px){
-  .hero{ padding:50px 40px 26px; }
-  .panel{ padding:26px 40px 10px; }
-  .tabs{ padding:12px 24px 0; }
-   body { padding: 0; }     /* remove outer padding on desktop */
-  .card { padding: 0 40px; } /* wider inner space on desktop */
+@media (max-width: 719px){
+  body{
+    padding: 0;                 /* no outer gutters */
+    background: var(--card);    /* match page to card so it's seamless */
+  }
+
+  .card{
+    max-width: none;            /* let it span the screen */
+    margin: 0;                  /* no outside gap */
+    border-radius: 0;           /* square edges */
+    box-shadow: none;           /* remove card shadow */
+    padding: 0;                 /* container itself has no padding */
+    background: var(--card);    /* keep white */
+  }
+
+  /* Give comfortable inner spacing to sections instead */
+  .hero{ padding: 28px 16px 18px; }
+  .panel{ padding: 20px 16px 10px; }
+  .tabs{ padding: 8px 12px 0; }
+
+  /* Keep CTA buttons from hugging the edges */
+  .cta{ padding: 0 8px; }
 }
