@@ -213,40 +213,47 @@ body{
 .panel[hidden]{ display: none; }
 
 /* Global panel padding — desktop rhythm */
-.panel{
-  padding: 26px 28px 12px;
+
+.panel {
+  padding: 32px 28px;        /* more breathing space */
+  border-bottom: 1px solid #F1F3F5; /* optional divider */
+}
+.panel:last-child {
+  border-bottom: none;
 }
 
 /* Section headings spacing is consistent */
-.section-title{
-  margin: 10px 0 14px;
-  font-weight: 500;
-  letter-spacing: .2px;
+.section-title {
+  margin: 0 0 16px;          /* no top margin, good bottom gap */
+  font-weight: 600;
+  font-size: var(--fs-18);
   line-height: var(--lh-tight);
-  position: relative;
 }
-.section-title::after{
+.section-title::after {
   content: "";
   display: block;
-  width: 120px;
+  width: 80px;
   height: 2px;
   background: #eef2f6;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 /* Paragraph body */
-.body{
+.body {
+  margin: 0 0 20px;          /* spacing after each paragraph */
+  font-size: var(--fs-15);
+  line-height: var(--lh-normal);
   color: #3d4653;
-  margin: 0 0 14px;
-  font-size: var(--fs-16);
 }
 
 /* Chips */
-.chips{
-  list-style: none;
+.chips {
+  margin: 0 0 20px;          /* keep same gap as paragraph */
   padding: 0;
-  margin: 8px 0 6px;
-  display: flex; flex-wrap: wrap; gap: 10px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 .chip{
   padding: 8px 12px;
@@ -258,27 +265,27 @@ body{
 }
 
 /* Experience items */
-.item{
-  padding: 16px 0;
+.item {
+  padding: 18px 0;
   border-bottom: 1px solid #F1F3F5;
 }
-.item:last-child{ border-bottom: 0; }
+.item:last-child { border-bottom: none; }
 
-.item h3{
+.item h3 {
   margin: 0 0 6px;
   font-size: var(--fs-16);
-  font-weight: 500;
-  line-height: var(--lh-tight);
+  font-weight: 600;
 }
-.muted{
+.item .muted {
+  display: block;
+  margin-bottom: 10px;
   color: var(--muted);
   font-size: var(--fs-13);
-  display: inline-block;
-  margin-bottom: 6px;
 }
-.panel .item p{
+.item p {
+  margin: 0 0 20px;          /* even with body text */
   font-size: var(--fs-15);
-  margin: 5px 0 15px;
+  line-height: var(--lh-normal);
 }
 
 /* =======================================
