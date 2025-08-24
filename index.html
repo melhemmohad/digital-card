@@ -13,6 +13,96 @@
 </head>
 <body>
 
+<script>
+(function () {
+  const tabsNav = document.querySelector('.tabs');
+  const tabButtons = Array.from(tabsNav.querySelectorAll('.tab[role="tab"]')); // ignore the CV link
+  const underline = tabsNav.querySelector('.tab-underline');
+
+  function getTabMetrics(el) {
+    const navRect = tabsNav.getBoundingClientRect();
+    const rect = el.getBoundingClientRect();
+    return {
+      left: rect.left - navRect.left + tabsNav.scrollLeft,
+      width: rect.width
+    };
+  }
+
+  function moveUnderline(toEl) {
+    if (!underline || !toEl) return;
+    const { left, width } = getTabMetrics(toEl);
+    underline.style.left = left + 'px';
+    underline.style.width = width + 'px';
+  }
+
+  function activateTab(btn) {
+    if (!btn || btn.getAttribute('role') !== 'tab') return;
+
+    // Deactivate all tabs
+    tabButtons.forEach(b => {
+      b.classList.remove('is-active');
+      b.setAttribute('aria-selected', 'false');
+    });
+
+    // Hide all panels
+    document.querySelectorAll('[role="tabpanel"]').forEach(p => {
+      p.classList.remove('is-active');
+      p.setAttribute('hidden', '');
+    });
+
+    // Activate this tab
+    btn.classList.add('is-active');
+    btn.setAttribute('aria-selected', 'true');
+
+    // Show its panel
+    const targetId = btn.getAttribute('data-target');
+    const panel = document.getElementById(targetId);
+    if (panel) {
+      panel.classList.add('is-active');
+      panel.removeAttribute('hidden');
+    }
+
+    moveUnderline(btn);
+  }
+
+  // Click handling
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => activateTab(btn));
+  });
+
+  // Keyboard support (Left/Right arrows)
+  tabsNav.addEventListener('keydown', (e) => {
+    const currentIndex = tabButtons.indexOf(document.activeElement);
+    if (currentIndex === -1) return;
+
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      const next = tabButtons[(currentIndex + 1) % tabButtons.length];
+      next.focus();
+      activateTab(next);
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      const prev = tabButtons[(currentIndex - 1 + tabButtons.length) % tabButtons.length];
+      prev.focus();
+      activateTab(prev);
+    }
+  });
+
+  // On load + on resize: set underline to the active tab
+  function init() {
+    const active = tabButtons.find(b => b.classList.contains('is-active')) || tabButtons[0];
+    activateTab(active);
+  }
+  window.addEventListener('resize', () => {
+    const active = tabButtons.find(b => b.classList.contains('is-active'));
+    moveUnderline(active);
+  });
+
+  // Kick off
+  init();
+})();
+</script>
+
   <main class="card" role="main">
     <!-- HERO -->
     <section class="hero">
@@ -44,13 +134,44 @@
       </div>
     </section>
 
-    <!-- TABS (static demo) -->
-    <nav class="tabs" aria-label="Sections">
-      <button class="tab is-active" aria-selected="true">Resume</button>
-      <button class="tab" aria-selected="false">FAQ</button>
-      <button class="tab" aria-selected="true">Download CV</button>
-      <span class="tab-underline" aria-hidden="true"></span>
-    </nav>
+<!-- TABS -->
+<nav class="tabs" aria-label="Sections" role="tablist">
+  <!-- “Tabs” (real switchers) -->
+  <button class="tab is-active"
+          id="tab-resume"
+          role="tab"
+          aria-selected="true"
+          data-target="panel-resume">
+    Resume
+  </button>
+
+  <button class="tab"
+          id="tab-faq"
+          role="tab"
+          aria-selected="false"
+          data-target="panel-faq">
+    FAQ
+  </button>
+
+  <!-- Download CV is just a link, not a tab -->
+  <a class="tab"
+     href="YOUR-CV-LINK.pdf"
+     target="_blank"
+     rel="noopener">
+    Download CV
+  </a>
+
+  <span class="tab-underline" aria-hidden="true"></span>
+</nav>
+
+<!-- PANELS -->
+<section id="panel-resume" class="panel is-active" role="tabpanel" aria-labelledby="tab-resume">
+  <!-- your Resume content -->
+</section>
+
+<section id="panel-faq" class="panel" role="tabpanel" aria-labelledby="tab-faq" hidden>
+  <!-- your FAQ content -->
+</section>
 
     <!-- ABOUT -->
     <section class="panel">
