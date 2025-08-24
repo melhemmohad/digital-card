@@ -86,7 +86,7 @@ body{
 }
 
 .title{
-  margin:4px 0 6px;
+  margin:4px 0 2px;
   font-size:22px; font-weight:500;
 }
 
@@ -101,10 +101,10 @@ body{
   padding:12px 22px; border-radius:28px; text-decoration:none;
   font-weight:700; letter-spacing:.2px; transition:.2s ease;
 }
-.btn-primary{ background:var(--primary); color:#fff; }
+.btn-primary{ background:#000; color:#fff; }
 .btn-primary:hover{ background:var(--primary-dark); transform:translateY(-1px); }
 .btn-outline{
-  color:var(--text); background:#fff; border:1.5px solid #E3E7ED;
+  color:var(--text); background:#fff; border:1.5px solid #000;
 }
 .btn-outline:hover{ box-shadow:0 8px 20px var(--ring); transform:translateY(-1px); }
 
