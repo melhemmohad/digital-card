@@ -3,67 +3,62 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Modern Digital Card</title>
+  <title>Digital Card – Brandon Debna</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
   <header class="topbar">
     <button class="icon-btn" aria-label="Back">←</button>
-    <h1 class="brand">Brandon Debna</h1>
+    <h1>Brandon Debna</h1>
     <button class="icon-btn" aria-label="More">⋯</button>
   </header>
 
   <main class="card">
+    <!-- avatar -->
+    <div class="avatar-wrap">
+      <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format&fit=crop" alt="Profile photo">
+    </div>
 
-    <!-- AVATAR + TITLE -->
-    <section class="hero">
-      <div class="avatar">
-        <!-- Replace with your image -->
-        <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=512&auto=format&fit=crop" alt="Profile picture">
-      </div>
+    <!-- title / meta -->
+    <h2 class="role">UI/UX Designer</h2>
+    <p class="meta">
+      <span>345 Followers</span>
+      <span class="dot">•</span>
+      <span>Dhaka, Bangladesh</span>
+    </p>
 
-      <h2 class="title">UI/UX Designer</h2>
+    <!-- actions -->
+    <div class="actions">
+      <a class="btn btn-outline" href="#" role="button">Follow</a>
+      <a class="btn btn-primary" href="mailto:hello@example.com" role="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/></svg>
+        Hire Me
+      </a>
+    </div>
 
-      <p class="muted meta">
-        <strong>345 Followers</strong>
-        <span class="dot">•</span>
-        <span>Dhaka, Bangladesh</span>
-      </p>
-
-      <div class="cta">
-        <a class="btn btn-outline" href="#" role="button">Follow</a>
-        <a class="btn btn-primary" href="mailto:you@example.com" role="button">
-          <span class="icon-mail" aria-hidden="true"></span>
-          Hire Me
-        </a>
-      </div>
-    </section>
-
-    <!-- TABS -->
+    <!-- tabs (static – Resume active) -->
     <nav class="tabs" aria-label="Sections">
-      <button class="tab" aria-selected="false">Portfolio</button>
-      <button class="tab is-active" aria-selected="true">Resume</button>
-      <button class="tab" aria-selected="false">Faq</button>
-      <span class="tab-underline" aria-hidden="true"></span>
+      <a href="#" class="tab">Portfolio</a>
+      <a href="#" class="tab is-active">Resume</a>
+      <a href="#" class="tab">Faq</a>
     </nav>
 
-    <!-- ABOUT -->
-    <section class="panel">
+    <!-- About -->
+    <section class="section">
       <h3 class="section-title">About me</h3>
-      <p class="body">
-        Passionate UI/UX designer who loves to create awesome interfaces that work great,
-        and believe visual design should help customers easily discover product features,
-        services or brand. I also love what I do.
+      <p class="copy">
+        Passionate UI/UX designer who loves to create awesome interfaces that work great.
+        I believe visual design should help customers quickly discover features of a
+        product, service, or brand. I also love what I do.
       </p>
     </section>
 
-    <!-- SKILLS -->
-    <section class="panel">
+    <!-- Skills -->
+    <section class="section">
       <h3 class="section-title">My Skills</h3>
-      <ul class="chips" aria-label="Skills">
+      <ul class="chips">
         <li class="chip">UX Design</li>
         <li class="chip">Photoshop</li>
         <li class="chip">UI Design</li>
@@ -78,27 +73,6 @@
         <li class="chip">Animation</li>
       </ul>
     </section>
-
-    <!-- EXPERIENCE (sample) -->
-    <section class="panel">
-      <h3 class="section-title">My Experience</h3>
-      <article class="item">
-        <div class="item-meta">
-          <h4>Senior UI/UX Designer — Acme Studio</h4>
-          <span class="muted">2021 — Present · Remote</span>
-        </div>
-        <p>Leading design for mobile & web apps, running research, prototypes and design systems.</p>
-      </article>
-      <article class="item">
-        <div class="item-meta">
-          <h4>Product Designer — Bright Apps</h4>
-          <span class="muted">2019 — 2021 · Dhaka</span>
-        </div>
-        <p>Delivered end-to-end feature design and collaborated with engineering & PM.</p>
-      </article>
-    </section>
-
   </main>
-
 </body>
 </html>
