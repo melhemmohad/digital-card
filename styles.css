@@ -63,12 +63,10 @@ body{
 /* Card wrapper (desktop keeps card look; mobile becomes full-bleed) */
 .card{
   max-width: var(--container-w);
-  margin: var(--space-6) auto 80px;
+  margin: 0 auto 80px;
   background: var(--card);
-  border-radius: var(--radius);
   box-shadow: 0 20px 60px var(--ring);
   overflow: hidden;
-  padding: 0 var(--space-4);        /* gentle inner gutter */
 }
 
 /* =======================================
