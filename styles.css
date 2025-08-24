@@ -151,4 +151,6 @@ body {
   .hero{ padding:50px 40px 26px; }
   .panel{ padding:26px 40px 10px; }
   .tabs{ padding:12px 24px 0; }
+   body { padding: 0; }     /* remove outer padding on desktop */
+  .card { padding: 0 40px; } /* wider inner space on desktop */
 }
