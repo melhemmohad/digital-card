@@ -1,172 +1,313 @@
-/* ===== Theme */
+/* =======================================
+   THEME & TOKENS
+======================================= */
 :root{
-  --bg: #F3F7F8;
-  --card: #FFFFFF;
-  --text: #0B1320;
-  --muted: #6F7A89;
-  --primary: #000;          /* button black */
-  --accent: #2ED3E6;        /* cyan tab underline */
-  --ring: rgba(0,0,0,.06);
-  --chip-bg: #F1F3F5;
-  --chip-text: #3B4350;
-  --radius: 18px;
+  /* Colors */
+  --bg:            #F3F7F8;
+  --card:          #FFFFFF;
+  --text:          #0B1320;
+  --muted:         #6F7A89;
+  --primary:       #000000;    /* buttons, accents */
+  --accent:        #2ED3E6;    /* (unused for underline now) */
+  --ring:          rgba(0,0,0,.06);
+
+  /* Surfaces */
+  --chip-bg:       #F1F3F5;
+  --chip-text:     #3B4350;
+
+  /* Radii */
+  --radius:        18px;
+  --radius-pill:   999px;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+
+  /* Typography */
+  --font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
+  --fs-12: 12px;
+  --fs-13: 13px;
+  --fs-14: 14px;
+  --fs-15: 15px;
+  --fs-16: 16px;
+  --fs-18: 18px;
+  --fs-22: 22px;
+
+  --lh-tight: 1.25;
+  --lh-normal: 1.55;
+
+  /* Layout */
+  --container-w: 760px;
 }
 
-/* ===== Base */
-*{ box-sizing:border-box }
-html,body{ height:100% }
+/* =======================================
+   BASE / RESET
+======================================= */
+*{ box-sizing: border-box; }
+html, body{ height:100%; }
 
-body {
+body{
   margin: 0;
-  padding: 0 12px;   /* left & right space on mobile */
+  padding: 0 var(--space-4);        /* mobile side space */
   background: var(--bg);
   color: var(--text);
-  font: 400 16px/1.55 'Roboto', system-ui, sans-serif;
+  font: 400 var(--fs-16)/var(--lh-normal) var(--font-family);
 }
 
-.card {
-  max-width: 760px;
-  margin: 24px auto 80px;  /* auto = centers it */
+/* Card wrapper (desktop keeps card look; mobile becomes full-bleed) */
+.card{
+  max-width: var(--container-w);
+  margin: var(--space-6) auto 80px;
   background: var(--card);
   border-radius: var(--radius);
   box-shadow: 0 20px 60px var(--ring);
   overflow: hidden;
-  padding: 0 16px;         /* inner safe space */
+  padding: 0 var(--space-4);        /* gentle inner gutter */
 }
 
-/* ===== Hero */
+/* =======================================
+   HERO
+======================================= */
 .hero{
-  padding:34px 26px 22px;
-  text-align:center;
-  position:relative;
-  background:linear-gradient(to bottom,#F6FAFB,#fff 46%);
+  padding: 34px 26px 22px;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(to bottom, #F6FAFB, #fff 46%);
 }
+
 .avatar{
-  width:150px; height:150px; margin:0 auto 16px;
-  border-radius:50%;
-  background:#fff;
-  display:grid; place-items:center;
-  box-shadow:0 8px 30px rgba(0,0,0,.08);
+  width: 150px; height: 150px;
+  margin: 0 auto var(--space-4);
+  border-radius: 50%;
+  background: #fff;
+  display: grid; place-items: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,.08);
 }
-.avatar img{ width:150px; height:150px; object-fit:cover; border-radius:50%; }
+.avatar img{
+  width: 150px; height: 150px;
+  object-fit: cover; border-radius: 50%;
+}
 
-.title{ margin:4px 0 2px; font-size:22px; font-weight:500; }
-.meta{ margin:0 0 16px; color:var(--muted); }
-.meta .dot{ margin:0 8px; }
+.title{
+  margin: 4px 0 2px;
+  font-size: var(--fs-22);
+  font-weight: 500;
+  line-height: var(--lh-tight);
+}
+.meta{
+  margin: 0 0 var(--space-4);
+  color: var(--muted);
+}
+.meta .dot{ margin: 0 var(--space-3); }
 
-/* ===== CTA Buttons */
+/* =======================================
+   CTA BUTTONS
+======================================= */
 .cta{
-  display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
-.btn{
-  display:inline-flex; align-items:center; gap:6px;
-  padding:8px 22px;
-  border-radius:28px;
-  text-decoration:none;
-  font-weight:500;
-  transition:.2s transform, .2s box-shadow, .2s background-color;
-}
-.btn-primary{ background:#000; color:#fff; }
-.btn-primary:hover{ box-shadow:0 8px 20px rgba(0,0,0,.12); transform:translateY(-1px); }
-.btn-outline{ color:var(--text); background:#fff; border:1.6px solid #000; }
-.btn-outline:hover{ box-shadow:0 8px 20px rgba(0,0,0,.08); transform:translateY(-1px); }
 
-/* Circle button (LinkedIn) */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 22px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  font-weight: 500;
+  transition: .2s transform, .2s box-shadow, .2s background-color, .2s border-color;
+}
+
+.btn-primary{
+  background: var(--primary);
+  color: #fff;
+}
+.btn-primary:hover{
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+  transform: translateY(-1px);
+}
+
+.btn-outline{
+  color: var(--text);
+  background: #fff;
+  border: 1.6px solid var(--primary);
+}
+.btn-outline:hover{
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  transform: translateY(-1px);
+}
+
+/* Circle (LinkedIn) */
 .btn-circle{
-  width:42px; height:42px; border-radius:50%;
-  display:inline-flex; align-items:center; justify-content:center;
-  text-decoration:none;
-  background:#0077B5; color:#fff; transition:.2s background-color, .2s transform;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  text-decoration: none;
+  background: #0077B5; color: #fff;
+  transition: .2s background-color, .2s transform;
 }
 .btn-circle:hover{ background:#004182; transform:translateY(-1px); }
 .btn-circle.linkedin .icon{ width:18px; height:18px; }
 
-/* ===== Icons (CSS mask) */
-.icon{ width:18px; height:18px; display:inline-block; background:currentColor; }
+/* =======================================
+   ICONS (CSS mask)
+======================================= */
+.icon{
+  width: 18px; height: 18px;
+  display: inline-block;
+  background: currentColor;
+}
 .icon-phone{
-  mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79a15.91 15.91 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.49 2.53.76 3.92.76a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1C10.07 22.24 1.76 13.93 1.76 3a1 1 0 0 1 1-1H6.5a1 1 0 0 1 1 1c0 1.39.26 2.71.76 3.92.17.39.09.85-.21 1.11l-2.2 2.2z"/></svg>') center/contain no-repeat;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79a15.91 15.91 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.49 2.53.76 3.92.76a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1C10.07 22.24 1.76 13.93 1.76 3a1 1 0 0 1 1-1H6.5a1 1 0 0 1 1 1c0 1.39.26 2.71.76 3.92.17.39.09.85-.21 1.11l-2.2 2.2z"/></svg>') center/contain no-repeat;
 }
 .icon-mail{
-  mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>') center/contain no-repeat;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>') center/contain no-repeat;
 }
 .icon-linkedin{
-  mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zm-46.44-340a53.5 53.5 0 1 1 0-107 53.5 53.5 0 1 1 0 107zM447.9 448h-92.4V304c0-34.3-.7-78.5-47.8-78.5-47.9 0-55.3 37.4-55.3 76v146.5h-92.4V148.9h88.7v40.8h1.3c12.4-23.6 42.5-48.6 87.4-48.6 93.5 0 110.7 61.5 110.7 141.3V448z"/></svg>') center/contain no-repeat;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zm-46.44-340a53.5 53.5 0 1 1 0-107 53.5 53.5 0 1 1 0 107zM447.9 448h-92.4V304c0-34.3-.7-78.5-47.8-78.5-47.9 0-55.3 37.4-55.3 76v146.5h-92.4V148.9h88.7v40.8h1.3c12.4-23.6 42.5-48.6 87.4-48.6 93.5 0 110.7 61.5 110.7 141.3V448z"/></svg>') center/contain no-repeat;
 }
 
-/* ===== Tabs */
+/* =======================================
+   TABS
+======================================= */
 .tabs{
-  position:relative; display:flex; gap:14px;
-  padding:10px 16px 0; border-top:1px solid #F1F3F5; background:#fff;
+  position: relative;
+  display: flex;
+  gap: 14px;
+  padding: 12px 20px 0;
+  border-top: 1px solid #F1F3F5;
+  background: #fff;
 }
 .tab{
-  appearance:none; background:transparent; border:0; cursor:pointer;
-  padding:10px 14px; font-weight:600; color:var(--muted);
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 10px 14px;
+  font-weight: 600;
+  color: var(--muted);
 }
-.tab.is-active{ color:#000; }
+.tab.is-active{ color: var(--text); }
+
+/* Underline driven by JS */
 .tab-underline{
-  position:absolute; left:calc(16px + 110px); bottom:0;
-  width:88px; height:3px; background:var(--accent); border-radius:2px;
-}
-
-/* ===== Sections */
-/* Hide panels when not active */
-.panel[hidden] { display: none; }
-
-/* Let JS position the underline */
-.tab-underline {
   position: absolute;
-  bottom: 0;
-  height: 3px;
-  background: #000;
-  border-radius: 2px;
-  left: 0;             /* JS updates */
-  width: 0;            /* JS updates */
+  bottom: 0; left: 0; width: 0; height: 3px;
+  background: #000; border-radius: 2px;
   transition: left .25s ease, width .25s ease;
 }
-.section-title{
-  margin:8px 0 12px; font-weight:400; letter-spacing:.2px; position:relative;
-}
-.section-title::after{
-  content:""; display:block; width:120px; height:2px; background:#eef2f6; margin-top:10px;
+
+/* =======================================
+   PANELS & TYPOGRAPHY
+======================================= */
+.panel[hidden]{ display: none; }
+
+/* Global panel padding — desktop rhythm */
+.panel{
+  padding: 26px 28px 12px;
 }
 
-/* Text & Lists */
-.body{ color:#3d4653; margin:0 0 14px; }
-.chips{ list-style:none; padding:0; margin:8px 0 6px; display:flex; flex-wrap:wrap; gap:10px; }
+/* Section headings spacing is consistent */
+.section-title{
+  margin: 10px 0 14px;
+  font-weight: 500;
+  letter-spacing: .2px;
+  line-height: var(--lh-tight);
+  position: relative;
+}
+.section-title::after{
+  content: "";
+  display: block;
+  width: 120px;
+  height: 2px;
+  background: #eef2f6;
+  margin-top: 12px;
+}
+
+/* Paragraph body */
+.body{
+  color: #3d4653;
+  margin: 0 0 14px;
+  font-size: var(--fs-16);
+}
+
+/* Chips */
+.chips{
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 6px;
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
 .chip{
-  padding:8px 12px; border-radius:18px;
-  background:var(--chip-bg); color:var(--chip-text);
-  font-weight:400; font-size:12px;
+  padding: 8px 12px;
+  border-radius: 18px;
+  background: var(--chip-bg);
+  color: var(--chip-text);
+  font-weight: 400;
+  font-size: var(--fs-12);
 }
 
 /* Experience items */
-.item{ padding:14px 0; border-bottom:1px solid #F1F3F5; }
-.item:last-child{ border-bottom:0; }
-.item h3{ margin:0 0 0px; font-size:16px; font-weight: 500 !important; }
-.muted{ color:var(--muted); font-size:13px; }
-.panel .item p { font-size: 15px; margin: 5px 0px 15px 0px;}
+.item{
+  padding: 16px 0;
+  border-bottom: 1px solid #F1F3F5;
+}
+.item:last-child{ border-bottom: 0; }
 
-/* ===== Responsive */
+.item h3{
+  margin: 0 0 6px;
+  font-size: var(--fs-16);
+  font-weight: 500;
+  line-height: var(--lh-tight);
+}
+.muted{
+  color: var(--muted);
+  font-size: var(--fs-13);
+  display: inline-block;
+  margin-bottom: 6px;
+}
+.panel .item p{
+  font-size: var(--fs-15);
+  margin: 5px 0 15px;
+}
+
+/* =======================================
+   MOBILE FULL-BLEED
+======================================= */
 @media (max-width: 719px){
   body{
-    padding: 0;                 /* no outer gutters */
-    background: var(--card);    /* match page to card so it's seamless */
+    padding: 0;               /* remove outer gutter */
+    background: var(--card);  /* blend with card */
   }
-
   .card{
-    max-width: none;            /* let it span the screen */
-    margin: 0;                  /* no outside gap */
-    border-radius: 0;           /* square edges */
-    box-shadow: none;           /* remove card shadow */
-    padding: 0;                 /* container itself has no padding */
-    background: var(--card);    /* keep white */
+    max-width: none;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    background: var(--card);
   }
-
-  /* Give comfortable inner spacing to sections instead */
   .hero{ padding: 28px 16px 18px; }
   .panel{ padding: 20px 16px 10px; }
   .tabs{ padding: 8px 12px 0; }
-
-  /* Keep CTA buttons from hugging the edges */
   .cta{ padding: 0 8px; }
+}
+
+/* =======================================
+   OPTIONAL: REDUCE-MOTION
+======================================= */
+@media (prefers-reduced-motion: reduce){
+  .btn, .btn-circle, .tab-underline{
+    transition: none !important;
+  }
 }
