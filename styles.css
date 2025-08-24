@@ -100,7 +100,7 @@ body {
 }
 .tab{
   appearance:none; background:transparent; border:0; cursor:pointer;
-  padding:14px 18px; font-weight:600; color:var(--muted);
+  padding:10px 14px; font-weight:600; color:var(--muted);
 }
 .tab.is-active{ color:#000; }
 .tab-underline{
