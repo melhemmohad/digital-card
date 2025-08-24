@@ -3,100 +3,161 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Digital Card</title>
+  <title>Mohammad Melhem — Digital Card</title>
+
+  <!-- Roboto -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- App CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<!-- <header class="topbar">
-  </header> -->
-
-  <main class="card">
-
-    <!-- AVATAR + TITLE -->
+  <main class="card" role="main">
+    <!-- HERO -->
     <section class="hero">
       <div class="avatar">
-        <!-- Replace with your image -->
-        <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=512&auto=format&fit=crop" alt="Profile picture">
+        <!-- Replace with your photo -->
+        <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=512&auto=format&fit=crop" alt="Portrait of Mohammad Melhem">
       </div>
-      
-      <h3 class="title">Mohammad Melhem</h3>
 
+      <h1 class="title">Mohammad Melhem</h1>
       <p class="muted meta">
-        <span>Business Development & Sales Expert</span>
+        <span>Business Development & Sales Leader</span>
       </p>
 
-      <div class="cta">
+      <div class="cta" aria-label="Contact actions">
         <a class="btn btn-outline" href="tel:+962795456577" role="button">
-          <span class="icon-phone"></span>
+          <span class="icon icon-phone" aria-hidden="true"></span>
           Call Me
         </a>
+
         <a class="btn btn-primary" href="mailto:melhem.mohad@gmail.com" role="button">
-          <span class="icon-mail" aria-hidden="true"></span>
+          <span class="icon icon-mail" aria-hidden="true"></span>
           Email
         </a>
-          <!-- LinkedIn -->
-        <a class="btn-circle linkedin" href="https://www.linkedin.com/in/moemelhem" target="_blank" role="button" aria-label="LinkedIn">
-         <span class="icon-linkedin"></span>
+
+        <a class="btn-circle linkedin" href="https://www.linkedin.com/in/moemelhem"
+           target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <span class="icon icon-linkedin" aria-hidden="true"></span>
         </a>
       </div>
     </section>
 
-    <!-- TABS -->
+    <!-- TABS (static demo) -->
     <nav class="tabs" aria-label="Sections">
       <button class="tab" aria-selected="false">Portfolio</button>
       <button class="tab is-active" aria-selected="true">Resume</button>
-      <button class="tab" aria-selected="false">Faq</button>
+      <button class="tab" aria-selected="false">FAQ</button>
       <span class="tab-underline" aria-hidden="true"></span>
     </nav>
 
     <!-- ABOUT -->
     <section class="panel">
-      <h3 class="section-title">About me</h3>
+      <h2 class="section-title">About Me</h2>
       <p class="body">
-        Passionate UI/UX designer who loves to create awesome interfaces that work great,
-        and believe visual design should help customers easily discover product features,
-        services or brand. I also love what I do.
+        Sales & Business Development Leader with 12+ years of experience driving revenue growth,
+        expanding markets, and leading high-performing teams across SaaS, B2B, and enterprise sales.
+        Skilled in strategic partnerships, consultative selling, and CRM-driven forecasting to boost
+        retention and accelerate growth.
       </p>
     </section>
 
     <!-- SKILLS -->
     <section class="panel">
-      <h3 class="section-title">My Skills</h3>
+      <h2 class="section-title">Core Skills</h2>
       <ul class="chips" aria-label="Skills">
-        <li class="chip">UX Design</li>
-        <li class="chip">Photoshop</li>
-        <li class="chip">UI Design</li>
-        <li class="chip">Commitment</li>
-        <li class="chip">English</li>
-        <li class="chip">Communication</li>
-        <li class="chip">Agency</li>
-        <li class="chip">Illustrator</li>
-        <li class="chip">iOS</li>
-        <li class="chip">Android</li>
-        <li class="chip">Material Design</li>
-        <li class="chip">Animation</li>
+        <li class="chip">Business Development & Sales Leadership</li>
+        <li class="chip">SaaS & B2B Sales</li>
+        <li class="chip">Consultative / Solution Selling</li>
+        <li class="chip">Strategic Partnerships</li>
+        <li class="chip">Market Expansion</li>
+        <li class="chip">Client Success & Retention</li>
+        <li class="chip">Pipeline & Forecasting</li>
+        <li class="chip">Revenue Growth</li>
+        <li class="chip">CRM: Salesforce / HubSpot / Zoho</li>
+        <li class="chip">Negotiation & Contracts</li>
+        <li class="chip">Sales Process Optimization</li>
+        <li class="chip">CHAMP / BANT</li>
       </ul>
     </section>
 
-    <!-- EXPERIENCE (sample) -->
+    <!-- EXPERIENCE -->
     <section class="panel">
-      <h3 class="section-title">My Experience</h3>
+      <h2 class="section-title">Experience</h2>
+
       <article class="item">
         <div class="item-meta">
-          <h4>Senior UI/UX Designer — Acme Studio</h4>
-          <span class="muted">2021 — Present · Remote</span>
+          <h3>Head of Business Development — HireHint</h3>
+          <span class="muted">2024 – Present · Remote</span>
         </div>
-        <p>Leading design for mobile & web apps, running research, prototypes and design systems.</p>
+        <p>
+          Driving revenue growth, SaaS adoption, and strategic partnerships across MENA.
+          Applied the CHAMP framework to align recruitment solutions with client needs,
+          achieving measurable client outcomes.
+        </p>
       </article>
+
       <article class="item">
         <div class="item-meta">
-          <h4>Product Designer — Bright Apps</h4>
-          <span class="muted">2019 — 2021 · Dhaka</span>
+          <h3>Sales Director — Albaddad Group</h3>
+          <span class="muted">2021 – 2024 · Hybrid</span>
         </div>
-        <p>Delivered end-to-end feature design and collaborated with engineering & PM.</p>
+        <p>
+          Generated $2M+ in new business revenue and grew markets by 30%.
+          Led and developed sales teams, achieving a 400% revenue increase.
+        </p>
       </article>
+
+      <article class="item">
+        <div class="item-meta">
+          <h3>Market Acquisition Manager — Bayt.com</h3>
+          <span class="muted">2019 – 2020 · Amman</span>
+        </div>
+        <p>
+          Expanded client base by 40%, optimized sales cycles by 20%,
+          and boosted conversions by 15% through campaign collaboration.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-meta">
+          <h3>Employment Service Senior Officer — IRC</h3>
+          <span class="muted">2018 – 2019 · Amman</span>
+        </div>
+        <p>
+          Increased employer partnerships by 30% and streamlined processes with
+          automation, reducing workload by 25%.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-meta">
+          <h3>Business Partner / Sales Team Leader — Akhtaboot</h3>
+          <span class="muted">2013 – 2018 · Amman</span>
+        </div>
+        <p>
+          Drove 40% revenue growth, exceeded targets by 30%, and closed high-value SaaS subscription deals.
+          Trained and mentored the sales team to boost overall performance.
+        </p>
+      </article>
+    </section>
+
+    <!-- EDUCATION & LANGUAGES -->
+    <section class="panel">
+      <h2 class="section-title">Education</h2>
+      <article class="item">
+        <div class="item-meta">
+          <h3>B.Sc. Accounting — Applied Science University</h3>
+          <span class="muted">Amman, Jordan</span>
+        </div>
+      </article>
+
+      <h2 class="section-title" style="margin-top:16px;">Languages</h2>
+      <ul class="chips" aria-label="Languages">
+        <li class="chip">Arabic — Native</li>
+        <li class="chip">English — Professional</li>
+      </ul>
     </section>
 
   </main>
