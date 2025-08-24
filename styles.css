@@ -75,7 +75,7 @@ body{
 }
 
 .avatar{
-  width:130px; height:130px; margin:0 auto 16px;
+  width:132px; height:132px; margin:0 auto 16px;
   border-radius:50%;
   background:#fff;
   display:grid; place-items:center;
