@@ -43,7 +43,7 @@ body{
   display:grid; place-items:center;
   box-shadow:0 8px 30px rgba(0,0,0,.08);
 }
-.avatar img{ width:146px; height:146px; object-fit:cover; border-radius:50%; }
+.avatar img{ width:150px; height:150px; object-fit:cover; border-radius:50%; }
 
 .title{ margin:4px 0 2px; font-size:22px; font-weight:500; }
 .meta{ margin:0 0 16px; color:var(--muted); }
@@ -129,7 +129,7 @@ body{
 
 /* ===== Responsive */
 @media (min-width: 720px){
-  .hero{ padding:40px 40px 26px; }
+  .hero{ padding:50px 40px 26px; }
   .panel{ padding:26px 40px 10px; }
   .tabs{ padding:12px 24px 0; }
 }
