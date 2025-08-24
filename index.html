@@ -11,11 +11,11 @@
   <!-- App CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-
-<script>
-(function () {
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
   const tabsNav = document.querySelector('.tabs');
+  if (!tabsNav) return; // nothing to do if tabs not found
+
   const tabButtons = Array.from(tabsNav.querySelectorAll('.tab[role="tab"]')); // ignore the CV link
   const underline = tabsNav.querySelector('.tab-underline');
 
@@ -70,7 +70,7 @@
     btn.addEventListener('click', () => activateTab(btn));
   });
 
-  // Keyboard support (Left/Right arrows)
+  // Keyboard support
   tabsNav.addEventListener('keydown', (e) => {
     const currentIndex = tabButtons.indexOf(document.activeElement);
     if (currentIndex === -1) return;
@@ -88,7 +88,7 @@
     }
   });
 
-  // On load + on resize: set underline to the active tab
+  // Init + keep underline positioned on resize
   function init() {
     const active = tabButtons.find(b => b.classList.contains('is-active')) || tabButtons[0];
     activateTab(active);
@@ -98,10 +98,11 @@
     moveUnderline(active);
   });
 
-  // Kick off
   init();
-})();
+});
 </script>
+  
+<body>
 
   <main class="card" role="main">
     <!-- HERO -->
