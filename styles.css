@@ -120,10 +120,11 @@ body{
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 22px;
+  padding: 8px 19px;
   border-radius: var(--radius-pill);
   text-decoration: none;
   font-weight: 500;
+  font-size: 12px;
   transition: .2s transform, .2s box-shadow, .2s background-color, .2s border-color;
 }
 
