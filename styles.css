@@ -87,7 +87,7 @@ body{
 
 .title{
   margin:4px 0 6px;
-  font-size:22px; font-weight:700;
+  font-size:22px; font-weight:500;
 }
 
 .meta{ margin:0 0 16px; color:var(--muted); }
