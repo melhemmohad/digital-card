@@ -288,6 +288,10 @@ body{
   line-height: var(--lh-normal);
 }
 
+.experience-panel {
+  margin-bottom: 30px;  /* adds space after */
+}
+
 /* =======================================
    MOBILE FULL-BLEED
 ======================================= */
