@@ -11,104 +11,13 @@
   <!-- App CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
-  <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const tabsNav = document.querySelector('.tabs');
-  if (!tabsNav) return; // nothing to do if tabs not found
-
-  const tabButtons = Array.from(tabsNav.querySelectorAll('.tab[role="tab"]')); // ignore the CV link
-  const underline = tabsNav.querySelector('.tab-underline');
-
-  function getTabMetrics(el) {
-    const navRect = tabsNav.getBoundingClientRect();
-    const rect = el.getBoundingClientRect();
-    return {
-      left: rect.left - navRect.left + tabsNav.scrollLeft,
-      width: rect.width
-    };
-  }
-
-  function moveUnderline(toEl) {
-    if (!underline || !toEl) return;
-    const { left, width } = getTabMetrics(toEl);
-    underline.style.left = left + 'px';
-    underline.style.width = width + 'px';
-  }
-
-  function activateTab(btn) {
-    if (!btn || btn.getAttribute('role') !== 'tab') return;
-
-    // Deactivate all tabs
-    tabButtons.forEach(b => {
-      b.classList.remove('is-active');
-      b.setAttribute('aria-selected', 'false');
-    });
-
-    // Hide all panels
-    document.querySelectorAll('[role="tabpanel"]').forEach(p => {
-      p.classList.remove('is-active');
-      p.setAttribute('hidden', '');
-    });
-
-    // Activate this tab
-    btn.classList.add('is-active');
-    btn.setAttribute('aria-selected', 'true');
-
-    // Show its panel
-    const targetId = btn.getAttribute('data-target');
-    const panel = document.getElementById(targetId);
-    if (panel) {
-      panel.classList.add('is-active');
-      panel.removeAttribute('hidden');
-    }
-
-    moveUnderline(btn);
-  }
-
-  // Click handling
-  tabButtons.forEach(btn => {
-    btn.addEventListener('click', () => activateTab(btn));
-  });
-
-  // Keyboard support
-  tabsNav.addEventListener('keydown', (e) => {
-    const currentIndex = tabButtons.indexOf(document.activeElement);
-    if (currentIndex === -1) return;
-
-    if (e.key === 'ArrowRight') {
-      e.preventDefault();
-      const next = tabButtons[(currentIndex + 1) % tabButtons.length];
-      next.focus();
-      activateTab(next);
-    } else if (e.key === 'ArrowLeft') {
-      e.preventDefault();
-      const prev = tabButtons[(currentIndex - 1 + tabButtons.length) % tabButtons.length];
-      prev.focus();
-      activateTab(prev);
-    }
-  });
-
-  // Init + keep underline positioned on resize
-  function init() {
-    const active = tabButtons.find(b => b.classList.contains('is-active')) || tabButtons[0];
-    activateTab(active);
-  }
-  window.addEventListener('resize', () => {
-    const active = tabButtons.find(b => b.classList.contains('is-active'));
-    moveUnderline(active);
-  });
-
-  init();
-});
-</script>
-  
 <body>
 
   <main class="card" role="main">
     <!-- HERO -->
     <section class="hero">
       <div class="avatar">
-        <!-- Replace with your photo -->
+        <!-- Replace with your photo file name -->
         <img src="mohammadmelhem.png" alt="Portrait of Mohammad Melhem">
       </div>
 
@@ -135,154 +44,244 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
     </section>
 
-<!-- TABS -->
-<nav class="tabs" aria-label="Sections" role="tablist">
-  <!-- “Tabs” (real switchers) -->
-  <button class="tab is-active"
-          id="tab-resume"
-          role="tab"
-          aria-selected="true"
-          data-target="panel-resume">
-    Resume
-  </button>
+    <!-- TABS -->
+    <nav class="tabs" aria-label="Sections" role="tablist">
+      <!-- Real tabs -->
+      <button class="tab is-active"
+              id="tab-resume"
+              role="tab"
+              aria-selected="true"
+              data-target="panel-resume">
+        Resume
+      </button>
 
-  <button class="tab"
-          id="tab-faq"
-          role="tab"
-          aria-selected="false"
-          data-target="panel-faq">
-    FAQ
-  </button>
+      <button class="tab"
+              id="tab-faq"
+              role="tab"
+              aria-selected="false"
+              data-target="panel-faq">
+        FAQ
+      </button>
 
-  <!-- Download CV is just a link, not a tab -->
-  <a class="tab"
-     href="YOUR-CV-LINK.pdf"
-     target="_blank"
-     rel="noopener">
-    Download CV
-  </a>
+      <!-- Download CV is a link, not a tab -->
+      <a class="tab"
+         href="YOUR-CV-LINK.pdf"
+         target="_blank"
+         rel="noopener">
+        Download CV
+      </a>
 
-  <span class="tab-underline" aria-hidden="true"></span>
-</nav>
+      <span class="tab-underline" aria-hidden="true"></span>
+    </nav>
 
-<!-- PANELS -->
-<section id="panel-resume" class="panel is-active" role="tabpanel" aria-labelledby="tab-resume">
-  <!-- your Resume content -->
-</section>
+    <!-- PANELS -->
+    <section id="panel-resume" class="panel is-active" role="tabpanel" aria-labelledby="tab-resume">
+      <!-- ABOUT -->
+      <section>
+        <h2 class="section-title">About Me</h2>
+        <p class="body">
+          Sales & Business Development Leader with 12+ years of experience driving revenue growth,
+          expanding markets, and leading high-performing teams across SaaS, B2B, and enterprise sales.
+          Skilled in strategic partnerships, consultative selling, and CRM-driven forecasting to boost
+          retention and accelerate growth.
+        </p>
+      </section>
 
-<section id="panel-faq" class="panel" role="tabpanel" aria-labelledby="tab-faq" hidden>
-  <!-- your FAQ content -->
-</section>
+      <!-- SKILLS -->
+      <section>
+        <h2 class="section-title">Core Skills</h2>
+        <ul class="chips" aria-label="Skills">
+          <li class="chip">Business Development & Sales Leadership</li>
+          <li class="chip">SaaS & B2B Sales</li>
+          <li class="chip">Consultative / Solution Selling</li>
+          <li class="chip">Strategic Partnerships</li>
+          <li class="chip">Market Expansion</li>
+          <li class="chip">Client Success & Retention</li>
+          <li class="chip">Pipeline & Forecasting</li>
+          <li class="chip">Revenue Growth</li>
+          <li class="chip">CRM: Salesforce / HubSpot / Zoho</li>
+          <li class="chip">Negotiation & Contracts</li>
+          <li class="chip">Sales Process Optimization</li>
+          <li class="chip">CHAMP / BANT</li>
+        </ul>
+      </section>
 
-    <!-- ABOUT -->
-    <section class="panel">
-      <h2 class="section-title">About Me</h2>
-      <p class="body">
-        Sales & Business Development Leader with 12+ years of experience driving revenue growth,
-        expanding markets, and leading high-performing teams across SaaS, B2B, and enterprise sales.
-        Skilled in strategic partnerships, consultative selling, and CRM-driven forecasting to boost
-        retention and accelerate growth.
+      <!-- EXPERIENCE -->
+      <section>
+        <h2 class="section-title">Experience</h2>
+
+        <article class="item">
+          <div class="item-meta">
+            <h3>Head of Business Development — HireHint</h3>
+            <span class="muted">2024 – Present · Remote</span>
+          </div>
+          <p>
+            Driving revenue growth, SaaS adoption, and strategic partnerships across MENA.
+            Applied the CHAMP framework to align recruitment solutions with client needs,
+            achieving measurable client outcomes.
+          </p>
+        </article>
+
+        <article class="item">
+          <div class="item-meta">
+            <h3>Sales Director — Albaddad Group</h3>
+            <span class="muted">2021 – 2024 · Hybrid</span>
+          </div>
+          <p>
+            Generated $2M+ in new business revenue and grew markets by 30%.
+            Led and developed sales teams, achieving a 400% revenue increase.
+          </p>
+        </article>
+
+        <article class="item">
+          <div class="item-meta">
+            <h3>Market Acquisition Manager — Bayt.com</h3>
+            <span class="muted">2019 – 2020 · Amman</span>
+          </div>
+          <p>
+            Expanded client base by 40%, optimized sales cycles by 20%,
+            and boosted conversions by 15% through campaign collaboration.
+          </p>
+        </article>
+
+        <article class="item">
+          <div class="item-meta">
+            <h3>Employment Service Senior Officer — IRC</h3>
+            <span class="muted">2018 – 2019 · Amman</span>
+          </div>
+          <p>
+            Increased employer partnerships by 30% and streamlined processes with
+            automation, reducing workload by 25%.
+          </p>
+        </article>
+
+        <article class="item">
+          <div class="item-meta">
+            <h3>Business Partner / Sales Team Leader — Akhtaboot</h3>
+            <span class="muted">2013 – 2018 · Amman</span>
+          </div>
+          <p>
+            Drove 40% revenue growth, exceeded targets by 30%, and closed high-value SaaS subscription deals.
+            Trained and mentored the sales team to boost overall performance.
+          </p>
+        </article>
+      </section>
+
+      <!-- EDUCATION & LANGUAGES -->
+      <section>
+        <h2 class="section-title">Education</h2>
+        <article class="item">
+          <div class="item-meta">
+            <h3>B.Sc. Accounting — Applied Science University</h3>
+            <span class="muted">Amman, Jordan</span>
+          </div>
+        </article>
+
+        <h2 class="section-title" style="margin-top:16px;">Languages</h2>
+        <ul class="chips" aria-label="Languages">
+          <li class="chip">Arabic — Native</li>
+          <li class="chip">English — Fluent</li>
+        </ul>
+      </section>
+    </section>
+
+    <section id="panel-faq" class="panel" role="tabpanel" aria-labelledby="tab-faq" hidden>
+      <h2 class="section-title">FAQ</h2>
+      <p class="body"><strong>Q:</strong> Are you available for new opportunities?<br>
+         <strong>A:</strong> Yes—open to senior Business Development / Sales leadership roles across MENA and remote.
+      </p>
+      <p class="body"><strong>Q:</strong> What industries do you focus on?<br>
+         <strong>A:</strong> SaaS, B2B services, HRTech, and enterprise solutions.
       </p>
     </section>
-
-    <!-- SKILLS -->
-    <section class="panel">
-      <h2 class="section-title">Core Skills</h2>
-      <ul class="chips" aria-label="Skills">
-        <li class="chip">Business Development & Sales Leadership</li>
-        <li class="chip">SaaS & B2B Sales</li>
-        <li class="chip">Consultative / Solution Selling</li>
-        <li class="chip">Strategic Partnerships</li>
-        <li class="chip">Market Expansion</li>
-        <li class="chip">Client Success & Retention</li>
-        <li class="chip">Pipeline & Forecasting</li>
-        <li class="chip">Revenue Growth</li>
-        <li class="chip">CRM: Salesforce / HubSpot / Zoho</li>
-        <li class="chip">Negotiation & Contracts</li>
-        <li class="chip">Sales Process Optimization</li>
-        <li class="chip">CHAMP / BANT</li>
-      </ul>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section class="panel">
-      <h2 class="section-title">Experience</h2>
-
-      <article class="item">
-        <div class="item-meta">
-          <h3>Head of Business Development — HireHint</h3>
-          <span class="muted">2024 – Present · Remote</span>
-        </div>
-        <p>
-          Driving revenue growth, SaaS adoption, and strategic partnerships across MENA.
-          Applied the CHAMP framework to align recruitment solutions with client needs,
-          achieving measurable client outcomes.
-        </p>
-      </article>
-
-      <article class="item">
-        <div class="item-meta">
-          <h3>Sales Director — Albaddad Group</h3>
-          <span class="muted">2021 – 2024 · Hybrid</span>
-        </div>
-        <p>
-          Generated $2M+ in new business revenue and grew markets by 30%.
-          Led and developed sales teams, achieving a 400% revenue increase.
-        </p>
-      </article>
-
-      <article class="item">
-        <div class="item-meta">
-          <h3>Market Acquisition Manager — Bayt.com</h3>
-          <span class="muted">2019 – 2020 · Amman</span>
-        </div>
-        <p>
-          Expanded client base by 40%, optimized sales cycles by 20%,
-          and boosted conversions by 15% through campaign collaboration.
-        </p>
-      </article>
-
-      <article class="item">
-        <div class="item-meta">
-          <h3>Employment Service Senior Officer — IRC</h3>
-          <span class="muted">2018 – 2019 · Amman</span>
-        </div>
-        <p>
-          Increased employer partnerships by 30% and streamlined processes with
-          automation, reducing workload by 25%.
-        </p>
-      </article>
-
-      <article class="item">
-        <div class="item-meta">
-          <h3>Business Partner / Sales Team Leader — Akhtaboot</h3>
-          <span class="muted">2013 – 2018 · Amman</span>
-        </div>
-        <p>
-          Drove 40% revenue growth, exceeded targets by 30%, and closed high-value SaaS subscription deals.
-          Trained and mentored the sales team to boost overall performance.
-        </p>
-      </article>
-    </section>
-
-    <!-- EDUCATION & LANGUAGES -->
-    <section class="panel">
-      <h2 class="section-title">Education</h2>
-      <article class="item">
-        <div class="item-meta">
-          <h3>B.Sc. Accounting — Applied Science University</h3>
-          <span class="muted">Amman, Jordan</span>
-        </div>
-      </article>
-
-      <h2 class="section-title" style="margin-top:16px;">Languages</h2>
-      <ul class="chips" aria-label="Languages">
-        <li class="chip">Arabic — Native</li>
-        <li class="chip">English — Fluent</li>
-      </ul>
-    </section>
-
   </main>
 
+  <!-- Tabs JS at end of body -->
+  <script>
+  (function () {
+    const tabsNav = document.querySelector('.tabs');
+    if (!tabsNav) return;
+
+    const tabButtons = Array.from(tabsNav.querySelectorAll('.tab[role="tab"]'));
+    const underline = tabsNav.querySelector('.tab-underline');
+
+    function getTabMetrics(el) {
+      const navRect = tabsNav.getBoundingClientRect();
+      const rect = el.getBoundingClientRect();
+      return {
+        left: rect.left - navRect.left + tabsNav.scrollLeft,
+        width: rect.width
+      };
+    }
+
+    function moveUnderline(toEl) {
+      if (!underline || !toEl) return;
+      const { left, width } = getTabMetrics(toEl);
+      underline.style.left = left + 'px';
+      underline.style.width = width + 'px';
+    }
+
+    function activateTab(btn) {
+      if (!btn || btn.getAttribute('role') !== 'tab') return;
+
+      tabButtons.forEach(b => {
+        b.classList.remove('is-active');
+        b.setAttribute('aria-selected', 'false');
+      });
+
+      document.querySelectorAll('[role="tabpanel"]').forEach(p => {
+        p.classList.remove('is-active');
+        p.setAttribute('hidden', '');
+      });
+
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-selected', 'true');
+
+      const targetId = btn.getAttribute('data-target');
+      const panel = document.getElementById(targetId);
+      if (panel) {
+        panel.classList.add('is-active');
+        panel.removeAttribute('hidden');
+      }
+
+      moveUnderline(btn);
+    }
+
+    // Clicks
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => activateTab(btn));
+    });
+
+    // Keyboard support
+    tabsNav.addEventListener('keydown', (e) => {
+      const currentIndex = tabButtons.indexOf(document.activeElement);
+      if (currentIndex === -1) return;
+
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        const next = tabButtons[(currentIndex + 1) % tabButtons.length];
+        next.focus();
+        activateTab(next);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const prev = tabButtons[(currentIndex - 1 + tabButtons.length) % tabButtons.length];
+        prev.focus();
+        activateTab(prev);
+      }
+    });
+
+    // Init & keep underline positioned on resize
+    function init() {
+      const active = tabButtons.find(b => b.classList.contains('is-active')) || tabButtons[0];
+      activateTab(active);
+    }
+    window.addEventListener('resize', () => {
+      const active = tabButtons.find(b => b.classList.contains('is-active'));
+      moveUnderline(active);
+    });
+
+    init();
+  })();
+  </script>
 </body>
 </html>
