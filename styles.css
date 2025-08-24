@@ -124,7 +124,7 @@ body{
 /* Experience items */
 .item{ padding:14px 0; border-bottom:1px solid #F1F3F5; }
 .item:last-child{ border-bottom:0; }
-.item h3{ margin:0 0 4px; font-size:16px; font-weight: 500; }
+.item h3{ margin:0 0 4px; font-size:16px; font-weight: 500;!important; }
 .muted{ color:var(--muted); }
 
 /* ===== Responsive */
