@@ -1,0 +1,154 @@
+/* ====== Theme ====== */
+:root{
+  --bg: #F3F7F8;
+  --card: #FFFFFF;
+  --text: #0B1320;
+  --muted: #6F7A89;
+  --primary: #FF9800;        /* orange button */
+  --primary-dark: #e48900;
+  --accent: #2ED3E6;         /* cyan tab underline */
+  --ring: rgba(0,0,0,.06);
+  --chip-bg: #F1F3F5;
+  --chip-text: #3B4350;
+  --radius: 18px;
+}
+
+/* ====== Base ====== */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font: 500 16px/1.55 "Work Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+/* ====== Top bar ====== */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:18px 20px;
+}
+.topbar .brand{
+  margin:0;
+  font-size:28px;
+  letter-spacing:.2px;
+}
+.icon-btn{
+  appearance:none; border:0; background:transparent;
+  font-size:24px; line-height:1; cursor:pointer; color:var(--muted);
+}
+
+/* ====== Card ====== */
+.card{
+  max-width:760px;
+  margin:0 auto 80px;
+  background:var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 20px 60px var(--ring);
+  overflow:hidden;
+}
+
+/* ====== Hero ====== */
+.hero{
+  padding:34px 26px 22px;
+  text-align:center;
+  position:relative;
+  background: linear-gradient(to bottom, #F6FAFB, #fff 46%);
+}
+
+.avatar{
+  width:120px; height:120px; margin:0 auto 16px;
+  border-radius:50%;
+  background:#fff;
+  display:grid; place-items:center;
+  box-shadow: 0 8px 30px rgba(0,0,0,.08);
+}
+.avatar img{
+  width:100%; height:100%; object-fit:cover; border-radius:50%;
+}
+
+.title{
+  margin:4px 0 6px;
+  font-size:22px; font-weight:700;
+}
+
+.meta{ margin:0 0 16px; color:var(--muted); }
+.meta .dot{ margin:0 8px; }
+
+.cta{ display:flex; justify-content:center; gap:14px; }
+
+/* Buttons */
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:12px 22px; border-radius:28px; text-decoration:none;
+  font-weight:700; letter-spacing:.2px; transition:.2s ease;
+}
+.btn-primary{ background:var(--primary); color:#fff; }
+.btn-primary:hover{ background:var(--primary-dark); transform:translateY(-1px); }
+.btn-outline{
+  color:var(--text); background:#fff; border:1.5px solid #E3E7ED;
+}
+.btn-outline:hover{ box-shadow:0 8px 20px var(--ring); transform:translateY(-1px); }
+
+/* Small envelope icon (pure CSS with mask) */
+.icon-mail{
+  width:18px; height:18px; display:inline-block; background:#fff;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="black"><path d="M20 4H4c-1.1 0-2 .9-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>') center/contain no-repeat;
+}
+
+/* ====== Tabs ====== */
+.tabs{
+  position:relative;
+  display:flex;
+  gap:14px;
+  padding:10px 16px 0;
+  border-top:1px solid #F1F3F5;
+  background:#fff;
+}
+.tab{
+  appearance:none; background:transparent; border:0; cursor:pointer;
+  padding:14px 18px; font-weight:600; color:var(--muted);
+}
+.tab.is-active{ color:var(--text); }
+.tab-underline{
+  position:absolute; left:calc(16px + 110px); /* under "Resume" by default */
+  bottom:0; width:88px; height:3px; background:var(--accent); border-radius:2px;
+}
+
+/* ====== Sections ====== */
+.panel{ padding:22px 22px 8px; }
+.section-title{
+  margin:8px 0 14px;
+  font-weight:700; letter-spacing:.2px;
+  position:relative;
+}
+.section-title::after{
+  content:""; display:block; width:120px; height:2px; background:#eef2f6; margin-top:10px;
+}
+
+/* text */
+.body{ color:#3d4653; margin:0 0 14px; }
+
+/* ====== Skills chips ====== */
+.chips{ list-style:none; padding:0; margin:8px 0 6px; display:flex; flex-wrap:wrap; gap:10px; }
+.chip{
+  padding:8px 12px; border-radius:18px;
+  background:var(--chip-bg); color:var(--chip-text);
+  font-weight:600; font-size:14px;
+}
+
+/* ====== Experience items ====== */
+.item{ padding:14px 0; border-bottom:1px solid #F1F3F5; }
+.item:last-child{ border-bottom:0; }
+.item h4{ margin:0 0 4px; font-size:16px; }
+.muted{ color:var(--muted); }
+
+/* ====== Responsive ====== */
+@media (min-width: 720px){
+  .hero{ padding:40px 40px 26px; }
+  .panel{ padding:26px 40px 10px; }
+  .tabs{ padding:12px 24px 0; }
+}
