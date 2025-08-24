@@ -283,7 +283,7 @@ body{
   font-size: var(--fs-13);
 }
 .item p {
-  margin: 0 0 20px;          /* even with body text */
+  margin: 0 0 5px;          /* even with body text */
   font-size: var(--fs-14);
   line-height: var(--lh-normal);
 }
