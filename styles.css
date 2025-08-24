@@ -96,7 +96,7 @@ body{
 .cta {
   display: flex;
   justify-content: center;
-  gap: 14px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
