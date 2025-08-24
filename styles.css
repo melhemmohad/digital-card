@@ -93,33 +93,90 @@ body{
 .meta{ margin:0 0 16px; color:var(--muted); }
 .meta .dot{ margin:0 8px; }
 
-.cta{ display:flex; justify-content:center; gap:14px; }
+.cta {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
 
 /* Buttons */
-.btn{
-  display:inline-flex; align-items:center; gap:5px;
-  padding:8px 20px; border-radius:28px; text-decoration:none;
-  font-weight:500; letter-spacing:.2px; transition:.2s ease;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 20px;
+  border-radius: 28px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
 }
+
 .btn-primary{ background:#000; color:#fff; }
 .btn-primary:hover{ background:var(--primary-dark); transform:translateY(-1px); }
 .btn-outline{
   color:var(--text); background:#fff; border:1.5px solid #000;
 }
-.btn-outline:hover{ box-shadow:0 8px 20px var(--ring); transform:translateY(-1px); }
+/* Outlined button (phone) */
+.btn-outline {
+  color: var(--text);
+  background: #fff;
+  border: 1.5px solid #E3E7ED;
+}
+.btn-outline:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  transform: translateY(-1px);
+}
 
+/* Primary button (Hire Me) */
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+/* Circle button (LinkedIn) */
+.btn-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: #0A66C2; /* LinkedIn blue */
+  color: #fff;
+  transition: 0.2s;
+}
+.btn-circle:hover {
+  background: #004182;
+}
+
+/* Icons (CSS mask technique) */
+.icon-phone, .icon-mail, .icon-linkedin {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  background: currentColor;
+}
+
+/* Phone SVG */
 .icon-phone {
-  width:18px;
-  height:18px;
-  display:inline-block;
-  background:#000; /* color fills here */
   mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79a15.91 15.91 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.49 2.53.76 3.92.76a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1C10.07 22.24 1.76 13.93 1.76 3a1 1 0 0 1 1-1H6.5a1 1 0 0 1 1 1c0 1.39.26 2.71.76 3.92.17.39.09.85-.21 1.11l-2.2 2.2z"/></svg>') center/contain no-repeat;
 }
 
-/* Small envelope icon (pure CSS with mask) */
-.icon-mail{
-  width:18px; height:18px; display:inline-block; background:#fff;
-  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="black"><path d="M20 4H4c-1.1 0-2 .9-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>') center/contain no-repeat;
+/* Mail SVG */
+.icon-mail {
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>') center/contain no-repeat;
+}
+
+/* LinkedIn SVG */
+.icon-linkedin {
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zm-46.44-340a53.5 53.5 0 1 1 0-107 53.5 53.5 0 1 1 0 107zM447.9 448h-92.4V304c0-34.3-.7-78.5-47.8-78.5-47.9 0-55.3 37.4-55.3 76v146.5h-92.4V148.9h88.7v40.8h1.3c12.4-23.6 42.5-48.6 87.4-48.6 93.5 0 110.7 61.5 110.7 141.3V448z"/></svg>') center/contain no-repeat;
 }
 
 /* ====== Tabs ====== */
