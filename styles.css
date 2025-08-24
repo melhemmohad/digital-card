@@ -114,10 +114,9 @@ body{
 }
 
 .btn-primary{ background:#000; color:#fff; }
-.btn-primary:hover{ background:var(--primary-dark); transform:translateY(-1px); }
-.btn-outline{
-  color:var(--text); background:#fff; border:1.5px solid #000;
-}
+.btn-primary:hover{ box-shadow: 0 8px 20px rgba(0,0,0,.08);transform: translateY(-1px); }
+.btn-outline{color:var(--text); background:#fff; border:1.5px solid #000;}
+.btn-outline:hover { box-shadow: 0 8px 20px rgba(0,0,0,.08);transform: translateY(-1px);}
 
 /* Circle button (LinkedIn) */
 .btn-circle {
