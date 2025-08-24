@@ -25,11 +25,14 @@ body{
 
 /* ====== Top bar ====== */
 .topbar{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  padding:18px 20px;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  max-width: 760px;
+  justify-content: center;
+  gap: 12px;
+  background: var(--card);
+  padding: 15px;
 }
 .topbar .brand{
   margin:0;
