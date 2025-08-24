@@ -4,7 +4,7 @@ F/* ====== Theme ====== */
   --card: #FFFFFF;
   --text: #0B1320;
   --muted: #6F7A89;
-  --primary: #FF9800;        /* orange button */
+  --primary: #000;        /* orange button */
   --primary-dark: #e48900;
   --accent: #2ED3E6;         /* cyan tab underline */
   --ring: rgba(0,0,0,.06);
@@ -21,6 +21,7 @@ body{
   background: var(--bg);
   color: var(--text);
   font: 400 16px/1.55 'Roboto', system-ui, sans-serif;
+  box-shadow: 0 20px 60px var(--ring)
 }
 
 .title {
