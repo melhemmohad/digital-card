@@ -11,6 +11,20 @@
   <!-- App CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
+  <script>
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    item.classList.toggle('active');
+
+    // Close others (optional, true accordion behavior)
+    document.querySelectorAll('.faq-item').forEach(other => {
+      if (other !== item) other.classList.remove('active');
+    });
+  });
+});
+</script>
+
 <body>
 
   <main class="card" role="main">
