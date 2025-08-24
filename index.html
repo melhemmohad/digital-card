@@ -11,19 +11,99 @@
   <!-- App CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
-  <script>
-document.querySelectorAll('.faq-question').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item = btn.parentElement;
-    item.classList.toggle('active');
+<!-- Place this just before </body>. Remove the earlier script that was before <body> -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  /* ----------------- FAQ ACCORDION ----------------- */
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const nowOpen = item.classList.toggle('active');
 
-    // Close others (optional, true accordion behavior)
-    document.querySelectorAll('.faq-item').forEach(other => {
-      if (other !== item) other.classList.remove('active');
+      // optional: close others for true accordion behavior
+      if (nowOpen) {
+        document.querySelectorAll('.faq-item').forEach(other => {
+          if (other !== item) other.classList.remove('active');
+        });
+      }
     });
   });
+
+  /* ----------------- TABS ----------------- */
+  const tabsNav = document.querySelector('.tabs');
+  if (!tabsNav) return;
+
+  const tabButtons = Array.from(tabsNav.querySelectorAll('.tab[role="tab"]')); // excludes CV link
+  const underline = tabsNav.querySelector('.tab-underline');
+
+  function getTabMetrics(el) {
+    const navRect = tabsNav.getBoundingClientRect();
+    const rect = el.getBoundingClientRect();
+    return {
+      left: rect.left - navRect.left + tabsNav.scrollLeft,
+      width: rect.width
+    };
+  }
+
+  function moveUnderline(toEl) {
+    if (!underline || !toEl) return;
+    const { left, width } = getTabMetrics(toEl);
+    underline.style.left = left + 'px';
+    underline.style.width = width + 'px';
+  }
+
+  function activateTab(btn) {
+    if (!btn || btn.getAttribute('role') !== 'tab') return;
+
+    // deactivate all
+    tabButtons.forEach(b => {
+      b.classList.remove('is-active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    document.querySelectorAll('[role="tabpanel"]').forEach(p => {
+      p.classList.remove('is-active');
+      p.setAttribute('hidden', '');
+    });
+
+    // activate current
+    btn.classList.add('is-active');
+    btn.setAttribute('aria-selected', 'true');
+
+    const targetId = btn.getAttribute('data-target');
+    const panel = document.getElementById(targetId);
+    if (panel) {
+      panel.classList.add('is-active');
+      panel.removeAttribute('hidden');
+    }
+
+    moveUnderline(btn);
+  }
+
+  // clicks
+  tabButtons.forEach(btn => btn.addEventListener('click', () => activateTab(btn)));
+
+  // keyboard
+  tabsNav.addEventListener('keydown', e => {
+    const i = tabButtons.indexOf(document.activeElement);
+    if (i === -1) return;
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      const next = tabButtons[(i + 1) % tabButtons.length];
+      next.focus(); activateTab(next);
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      const prev = tabButtons[(i - 1 + tabButtons.length) % tabButtons.length];
+      prev.focus(); activateTab(prev);
+    }
+  });
+
+  // init + keep underline positioned on resize
+  const active = tabButtons.find(b => b.classList.contains('is-active')) || tabButtons[0];
+  activateTab(active);
+  window.addEventListener('resize', () => moveUnderline(tabButtons.find(b => b.classList.contains('is-active'))));
 });
 </script>
+
 
 <body>
 
