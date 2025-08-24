@@ -200,6 +200,66 @@ body{
 }
 .tab.is-active{ color: var(--text); }
 
+/* FAQ Accordion */
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  background: #f8f9fc;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 16px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  color: var(--text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq-toggle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--muted);
+  transition: transform 0.2s;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-answer p {
+  margin: 12px 0 16px;
+  font-size: 15px;
+  color: #3d4653;
+}
+
+/* Active state */
+.faq-item.active .faq-answer {
+  max-height: 200px; /* adjust if answers are longer */
+  padding: 0 20px 16px;
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(45deg); /* turns + into × */
+  color: #000;
+}
+
 /* Underline driven by JS */
 .tab-underline{
   position: absolute;
