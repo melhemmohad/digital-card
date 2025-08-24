@@ -104,7 +104,20 @@ body{
 }
 
 /* ===== Sections */
-.panel{ padding:22px 22px 8px; }
+/* Hide panels when not active */
+.panel[hidden] { display: none; }
+
+/* Let JS position the underline */
+.tab-underline {
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  left: 0;             /* JS updates */
+  width: 0;            /* JS updates */
+  transition: left .25s ease, width .25s ease;
+}
 .section-title{
   margin:8px 0 12px; font-weight:400; letter-spacing:.2px; position:relative;
 }
