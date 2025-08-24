@@ -19,7 +19,7 @@ body{
   margin:0;
   background:var(--bg);
   color:var(--text);
-  font:400 16px/1.55 'Roboto', system-ui, sans-serif;
+  font:400 15px/1.55 'Roboto', system-ui, sans-serif;
 }
 .card{
   max-width:760px;
