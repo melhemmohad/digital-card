@@ -248,7 +248,7 @@ body{
 
 /* Chips */
 .chips {
-  margin: 0 0 20px;          /* keep same gap as paragraph */
+  margin: 0 0 30px;          /* keep same gap as paragraph */
   padding: 0;
   list-style: none;
   display: flex;
