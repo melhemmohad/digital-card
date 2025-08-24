@@ -144,7 +144,7 @@ body {
 .item:last-child{ border-bottom:0; }
 .item h3{ margin:0 0 0px; font-size:16px; font-weight: 500 !important; }
 .muted{ color:var(--muted); font-size:13px; }
-.panel .item p { font-size: 15px;}
+.panel .item p { font-size: 15px; margin: 5px 0px 15px 0px;}
 
 /* ===== Responsive */
 @media (max-width: 719px){
