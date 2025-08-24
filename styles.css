@@ -97,7 +97,7 @@ body{
   appearance:none; background:transparent; border:0; cursor:pointer;
   padding:14px 18px; font-weight:600; color:var(--muted);
 }
-.tab.is-active{ color:var(--text); }
+.tab.is-active{ color:#000; }
 .tab-underline{
   position:absolute; left:calc(16px + 110px); bottom:0;
   width:88px; height:3px; background:var(--accent); border-radius:2px;
@@ -112,7 +112,7 @@ body{
   position: absolute;
   bottom: 0;
   height: 3px;
-  background: var(--accent);
+  background: #000;
   border-radius: 2px;
   left: 0;             /* JS updates */
   width: 0;            /* JS updates */
