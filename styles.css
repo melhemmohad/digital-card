@@ -371,6 +371,7 @@ body{
   margin: 0 0 5px;          /* even with body text */
   font-size: var(--fs-13);
   line-height: var(--lh-normal);
+  color: #3d4653;
 }
 
 .experience-panel {
