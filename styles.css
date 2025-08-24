@@ -75,14 +75,14 @@ body{
 }
 
 .avatar{
-  width:132px; height:132px; margin:0 auto 16px;
+  width:150px; height:150px; margin:0 auto 16px;
   border-radius:50%;
-  background:#fff;
+  background-color:#fff;
   display:grid; place-items:center;
   box-shadow: 0 8px 30px rgba(0,0,0,.08);
 }
 .avatar img{
-  width:125px; height:125px; object-fit:cover; border-radius:50%;
+  width:146px; height:146px; object-fit:cover; border-radius:50%;
 }
 
 .title{
