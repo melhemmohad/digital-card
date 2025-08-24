@@ -46,7 +46,7 @@ body{
 }
 .avatar img{ width:146px; height:146px; object-fit:cover; border-radius:50%; }
 
-.title{ margin:4px 0 2px; font-size:22px; font-weight:700; }
+.title{ margin:4px 0 2px; font-size:22px; font-weight:500; }
 .meta{ margin:0 0 16px; color:var(--muted); }
 .meta .dot{ margin:0 8px; }
 
@@ -107,7 +107,7 @@ body{
 /* ===== Sections */
 .panel{ padding:22px 22px 8px; }
 .section-title{
-  margin:8px 0 14px; font-weight:700; letter-spacing:.2px; position:relative;
+  margin:8px 0 14px; font-weight:400; letter-spacing:.2px; position:relative;
 }
 .section-title::after{
   content:""; display:block; width:120px; height:2px; background:#eef2f6; margin-top:10px;
